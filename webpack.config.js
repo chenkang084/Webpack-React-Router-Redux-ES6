@@ -56,21 +56,21 @@ module.exports = {
             },
         ]
     },
-    // devServer: {
-    //     contentBase: './',  //本地服务器所加载的页面所在的目录
-    //     host: 'localhost',
-    //     port: 8888,
-    //     historyApiFallback: true,  //不跳转
-    //     inline: true,  //实时刷新
-    //     proxy: {
-    //         '/api': {
-    //             target: 'https://cnodejs.org/api/v1',
-    //             secure: false,
-    //             changeOrigin: true,
-    //             host: 'cnodejs.org'
-    //         }
-    //     }
-    // },
+    devServer: {
+        contentBase: './',  //本地服务器所加载的页面所在的目录
+        host: '0.0.0.0',
+        port: 8888,
+        historyApiFallback: true,  //不跳转
+        inline: true,  //实时刷新
+        proxy: {
+            '/api': {
+                target: 'https://cnodejs.org/api/v1',
+                secure: false,
+                changeOrigin: true,
+                host: 'cnodejs.org'
+            }
+        }
+    },
     plugins: [
         new ExtractTextPlugin('main.css'),
         new webpack.LoaderOptionsPlugin({
@@ -88,7 +88,7 @@ module.exports = {
         }),
         new HtmlWebpackPlugin({ //根据模板插入css/js等生成最终HTML
             filename: './index.html', //生成的html存放路径，相对于 path
-            template: './src/templates/index.html', //html模板路径
+            template: './src/Templates/index.html', //html模板路径
             hash: true,    //为静态资源生成hash值
         })
     ],
